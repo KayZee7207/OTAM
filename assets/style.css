@@ -1,0 +1,148 @@
+/* Global Vars */
+:root {
+  --background-color: white;
+  --text-color: black;
+  --border-color: #ccc;
+  --hover-bg: #e0e0e0;
+  --button-background: #007bff;
+  --button-hover: #0056b3;
+  --link-color: #1abc9c;
+  --link-hover: #16a085;
+  --collapsible-bg: #eeeeee;
+  --filter-player-bg: white;
+}
+
+[data-theme="dark"] {
+  --background-color: #0f172a; /* Slate 900 */
+  --text-color: white;
+  --border-color: #334155;
+  --hover-bg: #1e293b;
+  --button-background: #4f46e5;
+  --button-hover: #4338ca;
+  --link-color: #818cf8;
+  --link-hover: #a5b4fc;
+  --collapsible-bg: #1e293b;
+  --filter-player-bg: #020617;
+}
+
+/* Base Styles */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a; 
+}
+::-webkit-scrollbar-thumb {
+  background: #334155; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569; 
+}
+
+/* Components */
+.context-menu {
+  position: absolute;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  display: none;
+  z-index: 1000;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.context-menu div {
+  padding: 8px 16px;
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: 0.875rem;
+}
+
+.context-menu div:hover {
+  background-color: var(--hover-bg);
+}
+
+.tooltip-popup {
+  position: absolute;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Analysis Results */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Replay Log Table */
+#log-table {
+  --player-color: lightGrey;
+  --border-width: 4px;
+  position: relative
+}
+
+#log-table .filters {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: inherit;
+}
+
+/* Filters */
+.filters input[type=checkbox] {
+  display: none;
+}
+
+/* Collapsable */
+.collapsable {
+  transition: all 0.2s ease-in-out;
+}
+.collapsed .collapsable {
+  display: none;
+}
+
+/* Utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.mask-linear-fade {
+    mask-image: linear-gradient(to right, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
+}
